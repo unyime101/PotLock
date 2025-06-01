@@ -6,7 +6,7 @@ def sign_up():
     phonenumber = input("Please enter your phone number: ")
     passw = input("Please enter a password: ")
 
-    try:
+    try:# try catch so the program doesnt halt even i the event of an error.
         mydb = db_con()#makes use of meth created in dbconfig with all database pass 
         crsr = mydb.cursor()# cursor created
         query = "INSERT INTO users (name, email, passw, phonenumber) VALUES (%s, %s, %s, %s)"# no. of %s must match no. of inputs
