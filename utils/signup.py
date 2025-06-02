@@ -2,7 +2,7 @@ from config.db_config import db_con
 
 def sign_up():
     valid_fields =False
-    email = input("Please enter your email address: ")
+    email = input("Please enter your email address, this will act as your login user name: ")
     Name = input("Please enter your full name: ")
     phonenumber = input("Please enter your phone number: ")
     passw = input("Please enter a password: ")    
