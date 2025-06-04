@@ -1,7 +1,9 @@
 from utils.signup import sign_up
 from config.db_test import get_users, get_tables
-usr_id = 0
+from utils.login import login
+usr_id = 0 # will be used further to select all user details linked to this id
 #get_tables()
-
-sign_up()
+usr_id = login()
+print(usr_id)
+#sign_up()
 #get_users()

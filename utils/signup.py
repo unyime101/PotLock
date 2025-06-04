@@ -2,10 +2,10 @@ from config.db_config import db_con
 
 def sign_up():
     valid_fields =False
-    email = input("Please enter your email address, this will act as your login user name: ")
-    Name = input("Please enter your full name: ")
-    phonenumber = input("Please enter your phone number: ")
-    passw = input("Please enter a password: ")    
+    email = input("Please enter your email address, this will act as your login user name: ").strip()
+    Name = input("Please enter your full name: ").strip()
+    phonenumber = input("Please enter your phone number: ").strip()
+    passw = input("Please enter a password: ").strip()    
     while(valid_fields ==False):#while loop to ensure user cannot progress until the fields are filled in the correct format
 
         if not email.strip(): #strip will remove whitespaces. Strip will return bool. If empty returns false. not operation flips therefore being true and message shown 
