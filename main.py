@@ -1,6 +1,7 @@
 from utils.signup import sign_up
 from config.db_test import get_users, get_tables
 from utils.login import login
+from utils.accounts import acccountDetails
 choice = False
 usr_id=0
 print("Hello, welcome to PotLock! A savings and finances management system. Saving made easy, No luck needed. \n************************************************************** ")
@@ -16,7 +17,10 @@ while(choice == False):
     else:
         print("*ERROR** \n Please make a choice by entering the number 1 or 2 \n **********************************")
 #Display current balance and active pots
-# Choice to (1) deposit (2)manage pots (3)manage account details 
+acccountDetails(usr_id)
+
+
+# Choice to (1) deposit (2)manage pots (3)manage account details (3)refresh  (4) None Sign out
 
 #  print(usr_id)
 
