@@ -1,7 +1,9 @@
 from utils.signup import sign_up
-from config.db_test import get_users, get_tables
+from config.db_test import get_users, get_tables, account_det
 from utils.login import login
-from utils.accounts import acccountDetails
+from utils.accounts import acccountDetails, deposit
+
+new_user = False
 choice = False
 usr_id=0
 print("Hello, welcome to PotLock! A savings and finances management system. Saving made easy, No luck needed. \n************************************************************** ")
@@ -10,6 +12,7 @@ while(choice == False):
     if(x.strip() == "1"):
         sign_up()
         usr_id = login()
+        deposit(usr_id)# new users must deposit money into the account if theyd like to keep it open
         choice=True
     elif(x.strip()=="2"):
         usr_id = login()# will be used further to select all user details linked to this id
@@ -18,12 +21,13 @@ while(choice == False):
         print("*ERROR** \n Please make a choice by entering the number 1 or 2 \n **********************************")
 #Display current balance and active pots
 acccountDetails(usr_id)
+#work on active pots
 
 
 # Choice to (1) deposit (2)manage pots (3)manage account details (3)refresh  (4) None Sign out
 
-#  print(usr_id)
+#print(usr_id)
 
 
 
-#sign_up()
+
