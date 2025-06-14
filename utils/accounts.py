@@ -15,15 +15,25 @@ def acccountDetails(usr_id):# fetches and displays the account balance, and amou
     acc_id =crsr.fetchone()[0]
     mydb.close()
     print("******************************************************************\n******************************************************************")
-    print("Hello and welcome," ,name, ". Your Account balance is:", active_balance, ". acc_id =", acc_id,"" )
+    print("Hello and welcome," ,name, ". Your Account balance is:", active_balance, ". acc_id =", acc_id,"" )#will leave as this, will further display acctive pots
 
 
-def deposit(user_id):
+def first_deposit(user_id):#deposit money into an account
     act_balance = input("How much Would you like to deposit? ").strip()
     mydb = db_con()
     crsr = mydb.cursor()
     query = "INSERT INTO accounts (active_balance, user_id) VALUES (%s, %s)"# no. of %s must match no. of inputs
     val = (act_balance, user_id)#accepts type tuple
     crsr.execute(query, val)
+    mydb.commit()
+    mydb.close()
+
+def deposit(user_id, active_balance ):# will take the amount and update the database with the vals. depending on how may pots and thos pots weight
+    income = input("How much Would you like to deposit? ").strip()
+    up_act_balance = active_balance+( income - (income*0.03))# just a dummy calc
+    mydb = db_con()
+    crsr = mydb.cursor()
+    query = ""
+    val = (user_id, up_act_balance)
     mydb.commit()
     mydb.close()
