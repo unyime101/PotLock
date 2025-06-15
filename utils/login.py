@@ -47,7 +47,7 @@ def login():
             crsr =  mydb.cursor()
             query = "SELECT user_id FROM users WHERE email = %s"
             crsr.execute(query, (usr_email,))
-            id = crsr.fetchone()#returns userid that matches the username
+            id = crsr.fetchone()[0]#returns userid that matches the username
             mydb.close()
             logged_in = True
     return id
