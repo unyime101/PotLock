@@ -15,7 +15,7 @@ def acccountDetails(usr_id):# fetches and displays the account balance, and amou
     acc_id =crsr.fetchone()[0]
     mydb.close()
     print("******************************************************************\n******************************************************************")
-    print("Hello and welcome," ,name, ". Your Account balance is:", active_balance, ". acc_id =", acc_id,"" )#will leave as this, will further display acctive pots
+    print("Hello and welcome," ,name, ". Your Account balance is:", active_balance, ". acc_id =", acc_id,", Active pots:" )#will leave as this, will further display acctive pots
     return active_balance
 
 def first_deposit(user_id):#deposit money into an account
