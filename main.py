@@ -22,8 +22,7 @@ while(choice == False):
         print("*ERROR** \n Please make a choice by entering the number 1 or 2 \n **********************************")
 #Display current balance and active pots
 
-print(usr_id)
-acccountDetails(usr_id)# current balance completed. Active pots needs to be done after pots made
+active_balance = acccountDetails(usr_id)# current balance completed. Active pots needs to be done after pots made
 #work on active pots
 
 # Choice to (1) deposit (2)manage pots (3)manage account details (3)refresh  (4) None Sign out
