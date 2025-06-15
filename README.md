@@ -1,5 +1,5 @@
 # PotLock
-# A finances managment system tht will automate and simplify saving.
+# A finances managment system that will automate and simplify saving.
 Technologies used so Far: Python, mysql
 This is an original soloution i had and decided to develope it to help myeslf and others manage savings.
 Users will have access to an active balance which they can withdraw money from.
@@ -26,4 +26,4 @@ Current progress notes:
 
 Potential further developments: 
 * Creating a better UI
-* Looking into deployin and learning kubernetes with it
+* Looking into deploying and learning kubernetes with it
