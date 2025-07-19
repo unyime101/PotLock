@@ -1,7 +1,8 @@
 from utils.signup import sign_up
 from config.db_test import get_users, get_tables, account_det
 from utils.login import login
-from utils.accounts import acccountDetails, first_deposit, deposit
+from utils.accounts import acccountDetails, first_deposit
+from utils.transactions import deposit
 
 new_user = False
 choice = False
