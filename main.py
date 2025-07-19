@@ -1,12 +1,13 @@
 from utils.signup import sign_up
-from config.db_test import get_users, get_tables, account_det
 from utils.login import login
-from utils.accounts import acccountDetails, first_deposit
+from utils.accounts import acccountDetails,accountID, first_deposit
 from utils.transactions import deposit
+from utils.pots import active_pots
 
 new_user = False
 choice = False
 usr_id=0
+acc_id=0
 active_balance = 0
 print("Hello, welcome to PotLock! A savings and finances management system. Saving made easy, No luck needed. \n************************************************************** ")
 while(choice == False):
@@ -22,17 +23,17 @@ while(choice == False):
     else:
         print("*ERROR** \n Please make a choice by entering the number 1 or 2 \n **********************************")
 #Display current balance and active pots
-
-active_balance = acccountDetails(usr_id)# current balance completed. Active pots needs to be done after pots made
-#work on active pots
-
+acc_id = accountID(usr_id)
+active_balance = acccountDetails(usr_id,acc_id)# current balance completed. Active pots needs to be done after pots made
+activePots = active_pots(acc_id)
+print("You currently have", activePots,"active pots.")
 # Choice to (1) deposit (2)manage pots (3)manage account details (3)refresh  (4) None Sign out
 action = False
 while(action == False):
     x = input("(1)Make a Deposit (2)Manage pots (3)Manage account details (4)Refresh  (5)None Sign out ")
     if(x.strip() == "1"):
-        deposit(usr_id,active_balance)
-        acccountDetails(usr_id)
+        deposit(acc_id,active_balance)
+        acccountDetails(usr_id, acc_id)
     elif(x.strip()=="2"):#will display active pots and allow the user to access each individual pot
         print("Pots currently in use: \n **working on**")
     elif(x.strip()=="3"):

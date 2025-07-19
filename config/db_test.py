@@ -1,4 +1,4 @@
-from .db_config import db_con #correct file path allowing me to accces meth in db con
+from db_config import db_con #correct file path allowing me to accces meth in db con
 
 def get_tables():#Testing connection 
     mydb = db_con()
@@ -50,3 +50,18 @@ def account_det():
     crsr.execute(query, val)
     mydb.commit()
     mydb.close()
+
+
+mydb = db_con()
+crsr = mydb.cursor()
+nme= "testPotCharlie"
+goal_amount = 900
+current_amount = 466
+locked_until = "2028-11-27"
+is_locked = False
+account_id = 3
+val = (nme,goal_amount,current_amount,locked_until,is_locked,account_id)
+query = "INSERT INTO pots (name, goal_amount, current_amount, locked_until, is_locked,account_id) VALUES (%s, %s, %s, %s, %s,%s)"
+crsr.execute(query,val)
+mydb.commit()
+mydb.close()
