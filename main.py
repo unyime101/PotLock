@@ -2,7 +2,7 @@ from utils.signup import sign_up
 from utils.login import login
 from utils.accounts import acccountDetails,accountID, first_deposit
 from utils.transactions import deposit
-from utils.pots import active_pots,display_pots
+from utils.pots import active_pots,display_pots,create_pot
 
 new_user = False
 choice = False
@@ -25,7 +25,6 @@ while(choice == False):
 #Display current balance and active pots
 acc_id = accountID(usr_id)
 active_balance = acccountDetails(usr_id,acc_id)# current balance completed. Active pots needs to be done after pots made
-activePots = active_pots(acc_id)
 # Choice to (1) deposit (2)manage pots (3)manage account details (4)refresh  (5) None Sign out
 action = False
 while(action == False):
@@ -34,9 +33,9 @@ while(action == False):
         deposit(acc_id,active_balance)
         acccountDetails(usr_id, acc_id)
     elif(x.strip()=="2"):#will display active pots and allow the user to access each individual pot
-        display_pots(activePots,acc_id)
+        display_pots(acc_id)
     elif(x.strip()=="3"):
-        print("Account details.... Which would you like to update: \n **working on**")
+        create_pot(acc_id)# create pot method implemented
     elif(x.strip()=="4"):
         print("Account details.... Which would you like to update: \n **working on**")
     elif(x.strip()=="5"):

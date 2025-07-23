@@ -13,9 +13,9 @@ def create_pot(acc_id):
     goal_amount =int(input("Please provide your goal ammount youd like to set: ").strip())
     locked_until = input("Please provide a date you would like the savings pot to be reopened. In the format yyyy-mm-dd.").strip()
     print("***************************************************")
-    choice = input("Would you like to make a deposit into the pot? (1)Yes (2)No ").strip()#ensures a choice is made before moving on
     choice_made = False
     while choice_made ==False:
+        choice = input("Would you like to make a deposit into the pot? (1)Yes (2)No ").strip()#ensures a choice is made before moving on
         if choice == "1":
             current_amount = int(input("Please provide an amount you'd like to deposit: ").strip())
             choice_made = True
@@ -34,7 +34,7 @@ def create_pot(acc_id):
     is_locked = True
     val = (name,goal_amount,current_amount,locked_until,is_locked,acc_id,weighting)
     query = "INSERT INTO pots (name, goal_amount, current_amount, locked_until, is_locked,account_id, weighting) VALUES (%s, %s, %s, %s, %s,%s,%s)"
-    print("******************************** \n******************************** \n******************************** \n******************************** \n******************************** ")
+    print("******************************** \n\033[32mPot Created Successfully! Please refesh on return to main menu.\033[0m \n******************************** ")
     mydb = db_con()
     crsr = mydb.cursor()
     crsr.execute(query,val)
@@ -45,13 +45,14 @@ def create_pot(acc_id):
     #Will incremently increase the growth of pots as the user continues to deposit, encouraging the to keep saving.
     # collateral will increase over time the more pots they have the greater the growth as the complete them
 
-def display_pots(activepots,acc_id):
+def display_pots(acc_id):
+    activePots = active_pots(acc_id)
     query = "Select name, goal_amount, current_amount, locked_until, is_locked, weighting from pots where account_id = %s"
     mydb = db_con()
     crsr = mydb.cursor()
     crsr.execute(query,(acc_id,))
     pots = crsr.fetchall()
-    print("You have",activepots,"active pots.") #displays all details in ugly format
+    print("You have",activePots,"active pots.") #displays all details in ugly format
     for i in pots:
         pot_name =i[0]# iterates through returned val from db
         pot_goal = i[1]
