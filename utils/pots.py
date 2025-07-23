@@ -50,8 +50,17 @@ def display_pots(activepots,acc_id):
     mydb = db_con()
     crsr = mydb.cursor()
     crsr.execute(query,(acc_id,))
-    pots = str(crsr.fetchall())
-    print("Hey you have",activepots," active pots. See below: ", pots)
+    pots = crsr.fetchall()
+    print("You have",activepots,"active pots.") #displays all details in ugly format
+    for i in pots:
+        pot_name =i[0]# iterates through returned val from db
+        pot_goal = i[1]
+        pot_balance = i[2]
+        locked_until = i[3]
+        pot_weight = i[5]
+        print("\033[34m*************************************\033[0m")
+        print("\033[31m",pot_name,"\033[0m""\n\033[32mPot Goal:\033[0m",pot_goal,"\n\033[32mPot Current Balance:\033[0m",pot_balance,"\n\033[31mPot Access Date:\033[0m",locked_until,"\n\033[32mPot Weight of Pot:\033[0m",pot_weight,"" )
+        print("\033[34m*************************************\033[0m \n\033[34m*************************************\033[0m ")
     mydb.close()
 
 
