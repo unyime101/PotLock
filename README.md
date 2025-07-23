@@ -22,7 +22,7 @@ Key functionalities:
 Current progress notes:
 * Login,signup created.
 * Deposit,Account details views created.
-* Working on Pots!!!!, Pot view created. And Pot creation ready to be implemented. Will also need to create verification meth for new pots.
+* Working on Pots!!!!, Pot view created. Pot creation implemented. Will also need to create verification meth for new pots and a check for full pots.
 
 Potential further developments: 
 * Creating a better UI
