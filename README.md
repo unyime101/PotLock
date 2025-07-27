@@ -1,6 +1,6 @@
 # PotLock
 # A finances managment system that will automate and simplify saving.
-Technologies used so Far: Python, mysql
+Technologies used so Far: Python, mysql 
 This is an original soloution i had and decided to develope it to help myeslf and others manage savings.
 Users will have access to an active balance which they can withdraw money from.
 Whilst also having "Pots" which act as saving stores which will be locked until either the target amount is reached or end date.
@@ -22,7 +22,8 @@ Key functionalities:
 Current progress notes:
 * Login,signup created.
 * Deposit,Account details views created.
-* Working on Pots!!!!
+* Working on Pots!!!!, Pot view created. Pot creation implemented. Will also need to create verification meth for new pots and a check for full pots.
+
 
 Potential further developments: 
 * Creating a better UI
