@@ -32,7 +32,7 @@ while(action == False):
     if(x.strip() == "1"):
         deposit(acc_id,active_balance)
         acccountDetails(usr_id, acc_id)
-    elif(x.strip()=="2"):#will display active pots and allow the user to access each individual pot
+    elif(x.strip()=="2"):#will display active pots 
         display_pots(acc_id)
     elif(x.strip()=="3"):
         create_pot(acc_id)# create pot method implemented
