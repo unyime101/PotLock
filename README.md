@@ -24,6 +24,7 @@ Current progress notes:
 * Deposit,Account details views created.
 * Working on Pots!!!!, Pot view created. Pot creation implemented. Will also need to create verification meth for new pots and a check for full pots.
 
+
 Potential further developments: 
 * Creating a better UI
 * Looking into deploying and learning kubernetes with it
