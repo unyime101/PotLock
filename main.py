@@ -2,7 +2,7 @@ from utils.signup import sign_up
 from utils.login import login
 from utils.accounts import acccountDetails,accountID, first_deposit
 from utils.transactions import deposit
-from utils.pots import active_pots,display_pots,create_pot
+from utils.pots import display_act_pots,create_pot,display_comp_pots
 
 new_user = False
 choice = False
@@ -28,19 +28,21 @@ active_balance = acccountDetails(usr_id,acc_id)# current balance completed. Acti
 # Choice to (1) deposit (2)manage pots (3)manage account details (4)refresh  (5) None Sign out
 action = False
 while(action == False):
-    x = input("(1)Make a Deposit (2)View Pots (3)Create New Pot (4)Manage account details  (5)Refresh (6)None Sign out ")
+    x = input("(1)Make a Deposit (2)Create New Pot (3)View Active Pots (4)View Completed Pots (5)Manage account details  (6)Refresh (7)None Sign out ")
     if(x.strip() == "1"):
         deposit(acc_id,active_balance)
         acccountDetails(usr_id, acc_id)
-    elif(x.strip()=="2"):#will display active pots 
-        display_pots(acc_id)
-    elif(x.strip()=="3"):
+    elif(x.strip()=="2"):
         create_pot(acc_id)# create pot method implemented
-    elif(x.strip()=="4"):
-        print("Account details.... Which would you like to update: \n **working on**")
+    elif(x.strip()=="3"):#will display active pots 
+        display_act_pots(acc_id)
+    elif(x.strip()=="4"):#will display completed pots the user can use 
+        display_comp_pots(acc_id)
     elif(x.strip()=="5"):
-        acccountDetails(usr_id,acc_id)
+        print("Account details.... Which would you like to update: \n **working on**")
     elif(x.strip()=="6"):
+        acccountDetails(usr_id,acc_id)
+    elif(x.strip()=="7"):
         usr_id = 0
         acc_id = 0
         action = True
