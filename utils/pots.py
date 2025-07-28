@@ -18,7 +18,11 @@ def create_pot(acc_id):
         choice = input("Would you like to make a deposit into the pot? (1)Yes (2)No ").strip()#ensures a choice is made before moving on
         if choice == "1":
             current_amount = int(input("Please provide an amount you'd like to deposit: ").strip())
-            choice_made = True
+            if current_amount<=goal_amount:
+                choice_made = True
+            else:
+                print("The amount you are depositing into the pot must be less than or equal to the goal amount!")
+                choice = False
         elif choice == "2":
             current_amount = 0
             choice_made = True
