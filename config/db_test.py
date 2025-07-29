@@ -54,17 +54,12 @@ def account_det():
 
 
 #active_pots(acc_id):
+acc_id = 11
+locked = 1
+query ="Select pot_id,name, goal_amount, weighting from pots where account_id =%s and is_locked=%s"
 mydb = db_con()
 crsr = mydb.cursor()
-acc_id =1
-query = "select count(*) from pots where account_id = %s" #will select just the number of active pots 
-crsr.execute(query,(acc_id,)) # note mswl still expects a tuple for the place holder
-activePots = crsr.fetchone()[0]
-if activePots>0:
-    print (activePots)
-elif activePots==0:
-    print("no pots")
-else:
-    print("null probanbly returned")
-
+crsr.execute(query,(acc_id,locked))
+stream = crsr.fetchall()
+print (stream[0][2])
     

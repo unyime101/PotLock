@@ -134,4 +134,12 @@ def valid_weight(acc_id, pot_weight):#will check that on creating new pots the w
         print("validation complete successfully!")
         validation = True
     return validation
-#def deposit_pot(pot_id):
+
+
+def fetch_pots(acc_id,locked):
+    query ="Select pot_id,name, goal_amount, weighting from pots where account_id =%s and is_locked=%s"
+    mydb = db_con()
+    crsr = mydb.cursor()
+    crsr.execute(query,(acc_id,locked))
+    stream = crsr.fetchall()
+    return stream
