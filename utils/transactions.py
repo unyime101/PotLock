@@ -9,23 +9,27 @@ def deposit(acc_id, active_balance ):# will take the amount and update the datab
         i =0
         left_over = 0
         while i < val:
-            current_pot_id = stream[i][1]
-            current_pot_balance = stream[i][2]
-            current_pot_weight = (stream[i][3])/100#prepares percentage for cals
+            total_pot_weight +=current_pot_weight
+            current_pot_id = stream[i][0]
+            current_pot_goal = stream[i][2]
+            current_pot_balance = stream[i][3]
+            current_pot_weight = (stream[i][4])/100#prepares percentage for cals
             new_pot_balance = current_pot_balance + (income * current_pot_weight)#calcs for updating pot 
             if left_over != 0:
-                new_pot_balance + (left_over*current_pot_weight)
-            if new_pot_balance > current_pot_balance:#check to see if the pot has been filled
-                print("congrats you have filled Pot:",stream[i][0],"")
-                left_over = new_pot_balance-current_pot_balance
+                new_pot_balance += (left_over*current_pot_weight)
+            if new_pot_balance > current_pot_goal:#check to see if the pot has been filled
+                print("congrats you have filled Pot:",stream[i][1],"")
+                left_over = new_pot_balance-current_pot_goal#any remainder is stored so it can be divided up again between the pots. "Water fall"
+                new_pot_balance = current_pot_goal#ensures the goal is met.
                 locked = 0
             elif new_pot_balance == current_pot_balance:
-                print("congrats you have filled Pot:",stream[i][0],"")
+                print("congrats you have filled Pot:",stream[i][1],"")
+                left_over = 0
                 locked = 0
             else:
                 left_over = 0
                 locked = 1
-
+            i+=1
     
         #should accurateley split the weighting and update pots
         # will use the fetch pots method
