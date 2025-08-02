@@ -1,5 +1,5 @@
 from config.db_config import db_con
-from pots import active_pots, fetch_pots
+from .pots import active_pots, fetch_pots
 def deposit(acc_id, active_balance ):# will take the amount and update the database with the vals. depending on how may pots and thos pots weight
     val = active_pots(acc_id)
     income = input("How much Would you like to deposit? ").strip()
