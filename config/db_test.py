@@ -81,7 +81,7 @@ def account_det():
 
 #active_pots(acc_id):
 acc_id = 12
-active_balance = 27.00
+active_balance =349.25
 
 def active_pots(acc_id):
     is_locked = 1
