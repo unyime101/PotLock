@@ -1,30 +1,80 @@
-# PotLock
-# A finances managment system that will automate and simplify saving.
-Technologies used so Far: Python, mysql 
-This is an original soloution i had and decided to develope it to help myeslf and others manage savings.
-Users will have access to an active balance which they can withdraw money from.
-Whilst also having "Pots" which act as saving stores which will be locked until either the target amount is reached or end date.
-Each pot will haave a "weighting", this will be the percentage of whatever is deposited into the account that will be automatically put into the pot.
-For instance. £50 is deposited into the account but the user has a pot of 0.1% weighting. The active balance will be £45 and £5 will be in the pot
-The pots will continue to fill. Once the pot is full it will become "live" so the user can make the goal purchae, house, car etc. 
-The weighting of the "live" pot is then divided and used for the other active saving pots, in turn increasing their growth.
-Will work great for people with constant incomes, for instance i am being paid weekly at my current job.
+# 💰 PotLock: Automated Finances Management System
 
-Key functionalities:
-* User Login/sign up
-* Deposit into and withdraw from account
-* Display: active balance, live saving pots, active pots and log out
-* Create Pots 
-* Track Pot Progress
-* Edit user details 
+**PotLock** is a personal finance management system built to **automate and simplify savings**. It allows users to manage an active balance while creating "pots" — locked savings targets — that fill automatically based on user-defined rules.
 
+This idea originated from my own need for better savings management while receiving regular income. I’m developing it with the intention to help myself and others build healthier saving habits.
 
-Current progress notes:
-* Login,signup created.
-* Deposit,Account details views created.
-* Working on Pots!!!!, Pot view created. Pot creation implemented. Will also need to create verification meth for new pots and a check for full pots.
+---
 
+## 🚀 Technologies Used
 
-Potential further developments: 
-* Creating a better UI
-* Looking into deploying and learning kubernetes with it
+- 🐍 Python  
+- 🛢️ MySQL  
+
+---
+
+## 🎯 Key Features
+
+- ✅ User registration and login  
+- ✅ View active balance and deposit into account  
+- ✅ Withdraw from account  
+- ✅ Create and manage savings “Pots”  
+- ✅ Track progress toward saving goals  
+- ✅ View all pots (active and live)  
+- ✅ Edit user details  
+- 🔒 Pots are locked until:
+  - A **target amount** is reached **or**  
+  - A specified **end date** passes
+
+---
+
+### 💡 How Pots Work
+
+Each pot has a **weighting** – a percentage of every deposit that will be redirected into it.
+
+Example:
+> User deposits £50  
+> A pot has a weighting of 10%  
+> £5 goes into the pot  
+> £45 remains in the active balance  
+
+When a pot becomes **full**, it is marked as “live” — signaling that the user can now make the intended purchase (house, car, etc.).
+
+> Once a pot becomes live, its previous weighting is redistributed to the remaining pots to speed up their growth.
+
+---
+
+## 📌 Current Progress
+
+| Feature                     | Status        | Notes                                                                 |
+|-----------------------------|---------------|-----------------------------------------------------------------------|
+| User Authentication         | ✅ Completed   | Login and signup fully implemented                                   |
+| Account Overview            | ✅ Completed   | Deposit flow and balance display working                            |
+| Pot Creation                | ✅ Completed   | Pot creation implemented                                              |
+| Pot Verification            | ✅ Completed   | Pot constraints and full pot logic added                             |
+| Pot Deposit Logic           | ✅ Completed   | Deposits now respect pot weightings                                  |
+| Pot Redistribution Logic    | 🚧 In Progress | Working on redistributing weights once pots become “live”            |
+
+---
+
+## 🔄 Development Note
+
+I have become **very comfortable using Python and MySQL**, and I’ve learned a lot through this project. For now, I will be **taking a break from PotLock** to focus on **further strengthening my Python knowledge** through new projects and challenges.
+
+I fully intend to **return to PotLock** later with fresh ideas and better tooling — especially in areas like deployment and scalability.
+
+---
+
+## 🌱 Potential Future Enhancements
+
+- 🖼️ Create a better UI/UX interface  
+- ☸️ Deploy the backend using Kubernetes  
+- 🐳 Containerize with Docker  
+- 📈 Add financial reports/analytics views  
+- 🧠 Incorporate budgeting and forecasting logic  
+
+---
+
+## 👨‍💻 About the Developer
+
+I'm a final-year **Computer Science student** aspiring to become a **Site Reliability Engineer (SRE)** and DevOps professional. I'm passionate about building meaningful tools, learning by doing, and improving systems with smart automation.
