@@ -1,12 +1,22 @@
 from config.db_config import db_con
 
-def active_pots(acc_id):
+def active_pots(acc_id):#selects the already filled pots
+    is_locked = 1
     mydb = db_con()
     crsr = mydb.cursor()
-    query = "select count(*) from pots where account_id = %s" #will select just the number of active pots 
-    crsr.execute(query,(acc_id,)) # note mswl still expects a tuple for the place holder
+    query = "select count(*) from pots where account_id = %s and is_locked=%s" #will select just the number of active pots 
+    crsr.execute(query,(acc_id,is_locked)) # note mswl still expects a tuple for the place holder
     activePots = crsr.fetchone()[0]
     return activePots
+
+def inactive_pots(acc_id):#selects the filled pots
+    is_locked = 0
+    mydb = db_con()
+    crsr = mydb.cursor()
+    query = "select count(*) from pots where account_id = %s and is_locked=%s" #will select just the number of active pots 
+    crsr.execute(query,(acc_id,is_locked)) # note mswl still expects a tuple for the place holder
+    inactivePots = crsr.fetchone()[0]
+    return inactivePots
 
 def create_pot(acc_id):
     name= input("Please Provide a name for the Pot you would like to make: ").strip()
@@ -134,4 +144,12 @@ def valid_weight(acc_id, pot_weight):#will check that on creating new pots the w
         print("validation complete successfully!")
         validation = True
     return validation
-#def deposit_pot(pot_id):
+
+
+def fetch_pots(acc_id,locked):
+    query ="Select pot_id,name, goal_amount,current_amount,weighting from pots where account_id =%s and is_locked=%s"
+    mydb = db_con()
+    crsr = mydb.cursor()
+    crsr.execute(query,(acc_id,locked))
+    stream = crsr.fetchall()
+    return stream
